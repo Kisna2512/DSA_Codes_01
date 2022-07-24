@@ -1,0 +1,165 @@
+q1.ans:-
+#include <iostream>
+
+using namespace std;
+
+int func(int n){
+    if(n==0){
+        return 0;
+    }
+    if(n==1){
+        return 1;
+    }
+    return (func(n-1) + (n-1)*func(n-2));
+}
+
+
+int main()
+{
+    int n;
+    cin>>n;
+    cout<<"The ans :-"<<func(n);
+
+    return 0;
+}
+q.2:-
+ans:-
+#include <iostream>
+
+using namespace std;
+
+int pow(int a,int n){
+    if(n==0){
+        return 1;
+    }
+    return a*pow(a,n-1);
+}
+
+int main()
+{
+    int a,n;
+    cin>>a>>n;
+    cout<<"The ans :-"<<pow(a,n);
+
+    return 0;
+}
+
+q.3
+optimized:-
+#include <iostream>
+
+using namespace std;
+
+int pow(int a,int n){
+    if(n==0){
+        return 1;
+    }
+    if(n==1){
+        return a;
+    }
+    int temp=pow(a,n/2);
+    if(n%2==0){
+        return temp*temp;
+    }
+    else{
+        return n*temp*temp;
+    }
+}
+
+int main()
+{
+    int a,n;
+    cin>>a>>n;
+    cout<<"The ans :-"<<pow(a,n);
+
+    return 0;
+}
+
+q4.
+#include <iostream>
+
+using namespace std;
+
+ void func(int n){
+     if(n==0) return;
+    for(int i=0;i<n;i++){
+        cout<<"* ";
+    }
+    cout<<endl;
+  func(n-1);
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    func(n);
+
+    return 0;
+}
+
+q4.
+#include <iostream>
+
+using namespace std;
+
+ void func(int n,int i){
+     if(n==0) return;
+   if(i<n){
+       cout<<"* ";
+       func(n,i+1);
+   }
+   else{
+       cout<<endl;
+       func(n-1,0);
+   }
+ 
+}
+
+int main()
+{
+    int n,i;
+    cin>>n>>i;
+    func(n,i);
+
+    return 0;
+}
+
+
+
+
+print all subset of an array
+ans:---------
+
+
+
+
+#include <iostream>
+#include<bits/stdc++.h>
+
+using namespace std;
+
+//reverse an array recursively
+void printsubset(int *arr,int i,int n,string osf){
+   if(i==n){
+       cout<<"["<<osf<<"]\n";
+       cout<<endl;
+       return;
+   }
+   printsubset(arr,i+1,n,osf + to_string(arr[i]) + ",");
+    printsubset(arr,i+1,n,osf);
+}
+
+
+
+
+int main() {
+  int n;
+  cin>>n;
+  int *arr=new int[n];
+ for(int i=0;i<n;i++){
+     cin>>arr[i];
+ }
+  printsubset(arr,0,n,"");
+ 
+}
